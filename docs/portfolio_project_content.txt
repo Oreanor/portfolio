@@ -1,0 +1,256 @@
+[
+  {
+    "id": "kludge-code",
+    "name": "Kludge Code",
+    "category": "tools",
+    "kind": "Developer tooling",
+    "tagline": "A workspace-aware AI coding companion, inside VS Code.",
+    "summary": "An editor-native assistant combining contextual chat, file operations, previews, Git and automation without forcing developers to leave their workflow.",
+    "tech": [
+      "TypeScript",
+      "VS Code API",
+      "AI providers"
+    ],
+    "features": [
+      "Eight AI providers, including local Ollama",
+      "Context scoped to file, folder, or full workspace",
+      "Snapshots and restore before AI edits",
+      "Live preview with element picker, Git/npm and Telegram controls"
+    ],
+    "decisions": [
+      "Request relevant files in a second pass instead of stuffing the entire repository into prompts.",
+      "Store credentials with VS Code SecretStorage; keep file recovery independent from Git."
+    ],
+    "url": "https://github.com/Oreanor/kludge",
+    "urlLabel": "View repository",
+    "visual": "editor"
+  },
+  {
+    "id": "presenter",
+    "name": "Presenter",
+    "category": "tools",
+    "kind": "Communication tool",
+    "tagline": "Slides and live translated captions in one shared window.",
+    "summary": "A multilingual meeting companion built around the screen people already share, with slides, captions, transcripts, annotations and a deliberately split speech pipeline.",
+    "tech": [
+      "Next.js",
+      "Web Speech API",
+      "Gemini",
+      "pdf.js"
+    ],
+    "features": [
+      "Live subtitles and dual-language transcripts",
+      "Synchronized versions of the same slide deck",
+      "Two audio channels for speaker and room",
+      "API request caps and measured usage safeguards"
+    ],
+    "decisions": [
+      "Use fast browser speech recognition for the pinned microphone language and streamed processing for captured meeting audio.",
+      "Eliminate a second private window: put everything the audience needs in the one shared presentation view."
+    ],
+    "visual": "presenter"
+  },
+  {
+    "id": "lesson-player",
+    "name": "Lesson Player",
+    "category": "tools",
+    "kind": "Teaching utility",
+    "tagline": "An offline-first lesson library with translated speech.",
+    "summary": "A focused adaptation of Presenter for language teachers: multilingual PDFs, fast local captions, on-device translation and a one-click Windows launcher.",
+    "tech": [
+      "Web Speech API",
+      "Chrome Translator",
+      "pdf.js"
+    ],
+    "features": [
+      "Local PDF lesson library with remembered folder access",
+      "Speech captions in the learner’s language",
+      "On-device translation with supported Chrome language packs",
+      "Language-linked slide decks and annotations"
+    ],
+    "decisions": [
+      "Remove conference-oriented cloud processing to run offline without API keys.",
+      "Keep source files local, with IndexedDB for permissions and local state for lesson navigation."
+    ],
+    "visual": "lesson"
+  },
+  {
+    "id": "family-genealogy",
+    "name": "Your Family Genealogy",
+    "category": "data",
+    "kind": "Interactive history",
+    "tagline": "A family archive that reads like a beautifully structured book.",
+    "summary": "An interactive genealogy publication combining a six-generation tree, linked biographies, history, maps and person-aware photographs in a single navigable experience.",
+    "tech": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Vitest"
+    ],
+    "features": [
+      "Six-generation family tree with person cards",
+      "Interactive photo hotspots and historical chapters",
+      "Ten-language interface",
+      "JSON-based administration and shareable reading state"
+    ],
+    "decisions": [
+      "Model family data independently from the visual presentation so the book is reusable for other families.",
+      "Keep navigation state in the URL so people can share a specific person or section."
+    ],
+    "url": "https://genealogy-phi.vercel.app/",
+    "urlLabel": "Open live app",
+    "visual": "family"
+  },
+  {
+    "id": "hwdb",
+    "name": "HWDB",
+    "category": "data",
+    "kind": "Collectibles catalogue",
+    "tagline": "Search and organize the tiny cars of a very large world.",
+    "summary": "A multi-brand die-cast catalogue and collection manager built around messy source data, detailed variant search and individual user collections.",
+    "tech": [
+      "Next.js",
+      "TypeScript",
+      "Supabase",
+      "NextAuth"
+    ],
+    "features": [
+      "Hot Wheels, Matchbox, Majorette and Welly catalogues",
+      "Search by model and variant attributes",
+      "Year browsing and personal collections",
+      "Eight interface languages and source-data maintenance tools"
+    ],
+    "decisions": [
+      "Normalize inconsistent MediaWiki and catalogue records into a common variant schema.",
+      "Keep catalogues on the server and separate local image handling from production cloud storage."
+    ],
+    "url": "https://hwdb-beryl.vercel.app/",
+    "urlLabel": "Open live app",
+    "visual": "hwdb"
+  },
+  {
+    "id": "star-elite",
+    "name": "Star Elite",
+    "category": "games",
+    "kind": "3D space sandbox",
+    "tagline": "A spaceship, a tangled universe, and scale as a game mechanic.",
+    "summary": "A procedural space sandbox with dogfighting, trading and discovery across hyperbolic galactic connections, where a ship can grow to a million times its original size.",
+    "tech": [
+      "TypeScript",
+      "three.js",
+      "React",
+      "Tauri"
+    ],
+    "features": [
+      "Seeded procedural star systems and galactic networks",
+      "Seamless hyperspace portals",
+      "Scale shifts up to 1,000,000×",
+      "Physics, combat, economy and optional NPC dialogue"
+    ],
+    "decisions": [
+      "Separate simulation rules from rendering and input to make deterministic headless testing possible.",
+      "Treat size as simulation state rather than a purely visual camera effect."
+    ],
+    "url": "https://starelite-lemon.vercel.app/",
+    "urlLabel": "Try the game",
+    "visual": "space"
+  },
+  {
+    "id": "skladron",
+    "name": "Skladron",
+    "category": "games",
+    "kind": "Base-defense strategy",
+    "tagline": "Build a base, plan its economy, and withstand drone raids.",
+    "summary": "A browser strategy game blending base-building, defense layouts, resources, missions and inspectable battle replays.",
+    "tech": [
+      "Next.js",
+      "React",
+      "Supabase"
+    ],
+    "features": [
+      "Base building and defensive upgrades",
+      "Economy, missions and competitive scenarios",
+      "Battle replay and reconnaissance",
+      "13 interface languages"
+    ],
+    "decisions": [
+      "Version simulation engines so old battle replays remain reproducible as rules evolve.",
+      "Support local play without Supabase while using cloud services for connected features."
+    ],
+    "visual": "defense"
+  },
+  {
+    "id": "maeth",
+    "name": "Maeth",
+    "category": "games",
+    "kind": "Tactical board game",
+    "tagline": "A compact 4×4 chess-like duel with characters who talk back.",
+    "summary": "A short-form strategy game with a two-stage draft, constrained moves, contested combat and characterful AI dialogue tied to real game state.",
+    "tech": [
+      "React",
+      "TypeScript",
+      "Supabase",
+      "LLM APIs"
+    ],
+    "features": [
+      "Draft and move phases on a 4×4 board",
+      "Human versus bot or online play",
+      "Character conversations and natural-language orders",
+      "Rules-aware move validation and explanations"
+    ],
+    "decisions": [
+      "Compute legal moves with the game engine; let language models explain or role-play, not invent rules.",
+      "Validate model-issued commands server-side before mutating game state."
+    ],
+    "visual": "maeth"
+  },
+  {
+    "id": "middle-earth",
+    "name": "Middle-earth",
+    "category": "games",
+    "kind": "Map-based RPG",
+    "tagline": "A journey across a familiar fantasy map, with systems beneath every step.",
+    "summary": "An unofficial fan-made map RPG about route choice, recruitment, supplies, encounters and branching travel narratives.",
+    "tech": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tauri"
+    ],
+    "features": [
+      "Terrain-aware travel with multiple transport modes",
+      "Party recruitment and progression",
+      "Turn-based encounters and supply management",
+      "Travel chronicle, encounters and alternate endings"
+    ],
+    "decisions": [
+      "Separate map presentation from route and party mechanics.",
+      "Design the browser and desktop wrappers around the same core game experience."
+    ],
+    "visual": "map"
+  },
+  {
+    "id": "two-towers",
+    "name": "Two Towers",
+    "category": "games",
+    "kind": "Turn-based strategy",
+    "tagline": "Six factions. Sixteen squares. An unexpectedly tactical battlefield.",
+    "summary": "A self-contained local prototype for compact turn-based strategy: fortify, recruit, advance and capture the opposing castle.",
+    "tech": [
+      "Next.js",
+      "React",
+      "TypeScript"
+    ],
+    "features": [
+      "4×4 tactical board with six factions",
+      "Bot, local two-player and bot-versus-bot modes",
+      "2D and 3D board views",
+      "Local save slots and English/Russian UI"
+    ],
+    "decisions": [
+      "Keep game rules independent from board rendering so 2D and 3D representations behave identically.",
+      "Make local persistence explicit, without implying online accounts or multiplayer."
+    ],
+    "visual": "towers"
+  }
+]
